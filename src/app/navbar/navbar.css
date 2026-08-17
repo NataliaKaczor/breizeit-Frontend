@@ -1,0 +1,36 @@
+/* navabr container*/ 
+.navbar {
+    background-color: #F6EBDA;
+    height: 60px;
+    margin:0px;
+}
+/* logo -- wenn Zeit canva- logo wechseln  */
+.navbar-brand {
+    font-family: 'Playfair Display', serif;
+}
+
+/* navigation links */
+.nav-link{
+    color:#503e34;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+}
+/* links beim drüberscrollen */ 
+.nav-link:hover{
+    color: #402D23;
+    font-weight: 600;
+
+}
+
+.navbar-nav {
+  gap: 20px;
+}
+
+/*  Responsive */
+
+/* hamburger menü knopf  */ 
+.navbar-toggler{
+    font-size: large;
+    border: none;
+    height: 50px ;
+}
