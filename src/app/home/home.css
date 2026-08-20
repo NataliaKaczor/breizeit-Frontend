@@ -1,0 +1,8 @@
+/* willkommens Bild  */
+.startseite {
+  height: 100vh;
+  background-image: url("../../assets/startseite-bild.png");
+  background-size: cover;
+  background-position: center;
+}
+
