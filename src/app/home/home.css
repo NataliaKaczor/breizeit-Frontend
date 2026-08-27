@@ -4,5 +4,35 @@
   background-image: url("../../assets/startseite-bild.png");
   background-size: cover;
   background-position: center;
+  justify-content: right;
+  display: flex;
+  align-items: center;
+  position: relative;
+  color: white;
+}
+
+
+/* Überschrift auf dem Bild  */
+.willkommensbereich {
+  position: absolute;
+  top: 38%;
+  right: 6%;
+  font-family: 'Playfair Display', serif;
+  color: white;
+  letter-spacing: 2px;
+  text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.6);
+  text-align: center;
+}
+
+h1 {
+  font-size: 3rem;
+  font-weight: 500;
+  margin-bottom: 40px;
+}
+
+.untertitel {
+  font-size: 2rem;
+  font-weight: 400;
+  margin-bottom: 30px;
 }
 
