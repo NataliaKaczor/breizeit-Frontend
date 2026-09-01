@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
 import { Lebensmittel } from '../../interfaces/lebensmittel';
+import { CommonModule } from '@angular/common';
 @Component({
   selector: 'app-lebensmittelliste',
-  imports: [],
+  imports: [CommonModule],
   templateUrl: './lebensmittelliste.html',
   styleUrl: './lebensmittelliste.css',
 })
@@ -16,7 +17,7 @@ export class Lebensmittelliste {
      altersempfehlung: 'ab 6 Monate', 
      allergen: "keines",
      beschreibung: "Avocados gehören zu den Lebensmitteln, die sehr reich an gesunden Fetten, Ballaststoffen und zahlreichen wichtigen Nährstoffen sind. Sie sind eine exzellente Quelle für Vitamin E, K, B5, B6, und C sowie Folat und Kalium. Für Babys, die ab sechs Monaten feste Nahrung probieren, sind Avocados ideal, da sie einfach zu pürieren und zu essen sind. Avocados können in verschiedenen Formen serviert werden, zum Beispiel als Guacamole oder in Stückchen als Fingerfood. Ihr milder Geschmack und ihre cremige Textur machen sie zu einer ausgezeichneten Wahl für Babys erste Lebensmittel.", 
-     bild: "../assets/avokado.png"
+     bild: 'assets/avokado.png' 
   },
   {
       name: 'Karotten',

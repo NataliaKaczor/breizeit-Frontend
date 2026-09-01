@@ -1,3 +1,21 @@
+<section class="lebensmittelliste">
+    <div class="lebensmittelContainer">
+        <h2>Lebensmittelliste</h2>
+        <div class="lebensmittelHinzufuegen">
+            <input type="text" placeholder="Neues Lebensmittel hinzufügen...">
+            <button>Hinzufügen</button>
+        </div>
+        <div class="lebensmittelListe">
+            <div class="lebensmittelKarte" *ngFor="let lebensmittel of lebensmittel">
+                <img class="lebensmittelBild" [src]="lebensmittel.bild" [alt]="lebensmittel.name">
+                <div class="lebensmittelInhalt">
+                    <h3>{{ lebensmittel.name }}</h3>
+                    <p class="alter">
+                        {{ lebensmittel.altersempfehlung }}
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
 
-
-
+</section>
