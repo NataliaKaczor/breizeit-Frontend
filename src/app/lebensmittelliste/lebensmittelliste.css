@@ -13,6 +13,7 @@
     font-size: 16px;
 }
 
+
 .lebensmittelHinzufuegen button {
     background-color: #6b8e5e;
     color: white;
@@ -35,7 +36,7 @@
 
 .lebensmittelContainer {
     width: 90%;
-    max-width: 1200px;
+    width: 1200px;
     margin: auto;
 }
 
@@ -47,7 +48,7 @@
 
 .lebensmittelListe {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(4, 1fr);
     gap: 20px;
 }
 
@@ -59,14 +60,19 @@
 
 .lebensmittelBild {
     width: 100%;
-    height: 200px;
-    object-fit: cover;
+    height: auto;
+    display: block;
 }
 
 .lebensmittelKarte h3 {
     padding: 15px;
     margin: 0;
     color: #4d3b36;
+}
+
+.lebensmittelKarte p {
+    padding: 0 15px 15px 15px;
+    margin: 0;
 }
 
 
