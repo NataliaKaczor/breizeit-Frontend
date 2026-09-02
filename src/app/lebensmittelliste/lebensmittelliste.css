@@ -1,3 +1,32 @@
+.lebensmittelHinzufuegen {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    margin-bottom: 40px;
+}
+
+.lebensmittelHinzufuegen input {
+    width: 300px;
+    padding: 10px 15px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 16px;
+}
+
+.lebensmittelHinzufuegen button {
+    background-color: #6b8e5e;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.lebensmittelHinzufuegen button:hover {
+    background-color: #55754a;
+}
+
 .lebensmittelliste {
     min-height: 100vh;
     background-color: #f8f3ef;
