@@ -1,20 +1,16 @@
-.lebensmittelHinzufuegen {
+.lebensmittelKopfzeile {
     display: flex;
-    gap: 10px;
-    justify-content: center;
+    justify-content: space-between;
+    align-items: center;
     margin-bottom: 40px;
 }
 
-.lebensmittelHinzufuegen input {
-    width: 300px;
-    padding: 10px 15px;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    font-size: 16px;
+.lebensmittelKopfzeile h2 {
+    color: #4d3b36;
+    margin: 0;
 }
 
-
-.lebensmittelHinzufuegen button {
+.lebensmittelKopfzeile button {
     background-color: #6b8e5e;
     color: white;
     border: none;
@@ -24,7 +20,7 @@
     font-size: 16px;
 }
 
-.lebensmittelHinzufuegen button:hover {
+.lebensmittelKopfzeile button:hover {
     background-color: #55754a;
 }
 
@@ -75,7 +71,28 @@
     margin: 0;
 }
 
+/* Responsive */
 
+
+@media (max-width: 900px) {
+    .lebensmittelContainer {
+        width: 85%;
+    }
+
+    .lebensmittelListe {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+    .lebensmittelContainer {
+        width: 80%;
+    }
+
+    .lebensmittelListe {
+        grid-template-columns: 1fr;
+    }
+}
 
 
 
