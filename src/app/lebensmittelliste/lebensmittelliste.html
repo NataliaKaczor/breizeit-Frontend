@@ -2,15 +2,17 @@
     <div class="lebensmittelContainer">
         <div class="lebensmittelKopfzeile">
             <h2>Lebensmittelliste</h2>
-            <button (click)="formularOeffnen()"> + Neues Lebensmittel eintragen</button>
-            <app-lebensmittel-form *ngIf="formularOffen"> </app-lebensmittel-form>
+            <a routerLink="/lebensmittelform"> neues Lebensmittel eintragen</a>
         </div>
         <div class="lebensmittelListe">
             <div class="lebensmittelKarte" *ngFor="let lebensmittel of lebensmittel">
                 <img class="lebensmittelBild" [src]="lebensmittel.bild" [alt]="lebensmittel.name">
                 <div class="lebensmittelInhalt">
                     <h3>{{ lebensmittel.name }}</h3>
-                    <p> {{ lebensmittel.altersempfehlung }} </p>
+                    <div class="lebensmittelInfo">
+                        <p>{{ lebensmittel.altersempfehlung }}</p>
+                        <a routerLink="/lebensmittelansicht">Mehr erfahren</a>
+                    </div>
                 </div>
             </div>
         </div>

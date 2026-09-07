@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
 import { Lebensmittel } from '../../interfaces/lebensmittel';
 import { CommonModule } from '@angular/common';
-import { LebensmittelForm } from '../lebensmittel-form/lebensmittel-form';
+import { RouterLink } from '@angular/router';
 @Component({
   selector: 'app-lebensmittelliste',
-  imports: [CommonModule, LebensmittelForm],
+  imports: [CommonModule, RouterLink],
   templateUrl: './lebensmittelliste.html',
   styleUrl: './lebensmittelliste.css',
 })
@@ -38,12 +38,6 @@ export class Lebensmittelliste {
     },
   ];
 
-// einblenden von Lebensmittel-form (Eingabefenster)
-formularOffen = false;
-
-formularOeffnen() {
-  this.formularOffen = true;
-}
 }
     
 
