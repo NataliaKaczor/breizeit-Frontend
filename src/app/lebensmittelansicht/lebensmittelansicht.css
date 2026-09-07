@@ -1,0 +1,59 @@
+.lebensmittelansicht {
+    min-height: 100vh;
+    background-color: #f8f3ef;
+    padding: 40px 20px;
+}
+
+.lebensmittelContainer {
+    width: 90%;
+    max-width: 1200px;
+    margin: auto;
+}
+
+.zurueckButton {
+    color: #6b8e5e;
+    text-decoration: none;
+    font-size: 16px;
+}
+
+.zurueckButton:hover {
+    text-decoration: underline;
+}
+
+.lebensmittelDetails {
+    display: flex;
+    gap: 50px;
+    margin-top: 40px;
+}
+
+.bildBereich {
+    width: 50%;
+}
+
+.bildBereich img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 12px;
+}
+
+.infoBereich {
+    width: 50%;
+}
+
+.infoBereich h2 {
+    color: #4d3b36;
+    margin-top: 0;
+}
+
+.infoBereich p {
+    margin-bottom: 15px;
+}
+
+.beschreibung {
+    margin-top: 30px;
+}
+
+.beschreibung h3 {
+    color: #4d3b36;
+}
