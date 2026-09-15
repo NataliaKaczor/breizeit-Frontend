@@ -11,7 +11,7 @@
                     <h3>{{ lebensmittel.name }}</h3>
                     <div class="lebensmittelInfo">
                         <p>{{ lebensmittel.altersempfehlung }}</p>
-                        <a routerLink="/lebensmittelansicht">Mehr erfahren</a>
+                        <a [routerLink]="['/lebensmittelansicht', lebensmittel._id]">Mehr erfahren</a>
                     </div>
                 </div>
             </div>

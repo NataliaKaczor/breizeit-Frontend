@@ -9,7 +9,7 @@ import { Ernaehrungstagebuch } from './ernaehrungstagebuch/ernaehrungstagebuch';
 export const routes: Routes = [
     { path: '', component: Home},
     { path: 'lebensmittelliste', component: Lebensmittelliste},
-    { path: 'lebensmittelansicht', component: Lebensmittelansicht},
+    { path: 'lebensmittelansicht/:id', component: Lebensmittelansicht },
     { path: 'lebensmittelform', component: LebensmittelForm},
     { path: 'baby-profil', component: BabyProfil},
     { path: 'ernaehrungstagebuch', component: Ernaehrungstagebuch},
