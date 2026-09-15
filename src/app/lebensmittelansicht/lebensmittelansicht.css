@@ -5,8 +5,8 @@
 }
 
 .lebensmittelContainer {
-    width: 90%;
-    max-width: 1200px;
+    width: 95%;
+    max-width: 1400px;
     margin: auto;
 }
 
@@ -27,7 +27,7 @@
 }
 
 .bildBereich {
-    width: 50%;
+    flex: 1;
 }
 
 .bildBereich img {
@@ -38,22 +38,45 @@
 }
 
 .infoBereich {
-    width: 50%;
+    flex: 1;
 }
-
-.infoBereich h2 {
-    color: #4d3b36;
-    margin-top: 0;
-}
-
-.infoBereich p {
+.infoBox {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: white;
+    border-radius: 12px;
+    padding: 20px 25px;
     margin-bottom: 15px;
 }
 
-.beschreibung {
-    margin-top: 30px;
+.infoBox p {
+    margin: 0;
+    color: #4d3b36;
 }
 
-.beschreibung h3 {
-    color: #4d3b36;
+.infoTitel {
+    font-weight: bold;
+}
+
+.beschreibung{
+    padding:10px 10px ;
+
+}
+
+/* Responsive */
+
+@media (max-width: 900px) {
+    .lebensmittelDetails {
+        flex-direction: column;
+        gap: 30px;
+    }
+
+    .bildBereich {
+        width: 100%;
+    }
+
+    .infoBereich {
+        width: 100%;
+    }
 }
