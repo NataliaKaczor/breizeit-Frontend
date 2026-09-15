@@ -3,30 +3,25 @@
         <a routerLink="/lebensmittelliste" class="zurueckButton">
             ← Zurück zur Lebensmittelliste
         </a>
+            @if (lebensmittel) {
         <div class="lebensmittelDetails">
             <div class="bildBereich">
-                <img src="assets/avokado.png" alt="Avocado">
+                <img [src]="lebensmittel.bild" [alt]="lebensmittel.name">
             </div>
             <div class="infoBereich">
                 <div class="infoBox">
                     <p class="infoTitel">Altersempfehlung</p>
-                    <p class=>ab 6 Monaten</p>
+                    <p class="infoTitel">{{lebensmittel.altersempfehlung}}</p>
                 </div>
                 <div class="infoBox">
                     <p class="infoTitel">Beschreibung</p>
                 </div>
-                <p class="beschreibung">Avocados gehören zu den Lebensmitteln, die sehr reich an gesunden Fetten,
-                    Ballaststoffen und zahlreichen wichtigen Nährstoffen sind. Sie sind eine exzellente Quelle für
-                    Vitamin E, K, B5, B6, und C sowie Folat und Kalium. Für Babys, die ab sechs Monaten feste Nahrung
-                    probieren, sind Avocados ideal, da sie einfach zu pürieren und zu essen sind. Avocados können in
-                    verschiedenen Formen serviert werden, zum Beispiel als Guacamole oder in Stückchen als Fingerfood.
-                    Ihr milder Geschmack und ihre cremige Textur machen sie zu einer ausgezeichneten Wahl für Babys
-                    erste Lebensmittel. </p>
+                <p class="beschreibung">{{lebensmittel.beschreibung}} </p>
                 <div class="infoBox">
                     <p class="infoTitel">Allergen</p>
-                    <p>kein bekanntes Allergen</p>
+                    <p>{{lebensmittel.allergen}}</p>
                 </div>
             </div>
-        </div>
+        </div>}
     </div>
 </section>
