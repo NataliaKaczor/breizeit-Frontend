@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
 import { Lebensmittel } from '../../interfaces/lebensmittel';
 import { Backend } from '../shared/backend';
+import { FormsModule } from '@angular/forms';
 @Component({
   selector: 'app-lebensmittel-form',
-  imports: [],
+  imports: [FormsModule],
   templateUrl: './lebensmittel-form.html',
   styleUrl: './lebensmittel-form.css',
 })
