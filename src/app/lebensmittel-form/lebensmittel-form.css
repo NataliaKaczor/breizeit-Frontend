@@ -1,0 +1,67 @@
+.formularSeite {
+    min-height: 100vh;
+    background-color: #f8f3ef;
+    padding: 40px 20px;
+}
+
+.formularContainer {
+    width: 90%;
+    max-width: 800px;
+    margin: auto;
+}
+
+.formularKarte {
+    background-color: white;
+    border-radius: 12px;
+    padding: 40px;
+    margin-top: 30px;
+}
+
+.formularKarte h2 {
+    color: #4d3b36;
+    margin-bottom: 10px;
+}
+
+.untertitel {
+    color: #777;
+    margin-bottom: 30px;
+}
+
+.form-label {
+    color: #4d3b36;
+    font-weight: bold;
+}
+
+.form-control {
+    border-radius: 8px;
+    padding: 10px;
+}
+
+.form-select {
+    border-radius: 8px;
+    padding: 10px;
+}
+
+.form-control:focus
+ {
+    border-color: #6b8e5e;
+    box-shadow: 0 0 0 0.2rem rgba(107, 142, 94, 0.2);
+}
+
+.form-select:focus
+ {
+    border-color: #6b8e5e;
+    box-shadow: 0 0 0 0.2rem rgba(107, 142, 94, 0.2);
+}
+
+.formularButton {
+    background-color: #6b8e5e;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+}
+
+.formularButton:hover {
+    background-color: #55754a;
+}
