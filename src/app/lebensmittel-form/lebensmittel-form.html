@@ -1,0 +1,75 @@
+<div class="formularSeite">
+
+    <div class="formularContainer">
+        <div class="formularKarte">
+            <h2>Neues Lebensmittel hinzufügen</h2>
+            <p class="untertitel">
+                Füge ein neues Lebensmittel zur allgemeinen Lebensmittelliste hinzu. </p>
+
+            <form>
+
+                <div class="mb-3">
+                    <label for="name" class="form-label">Name</label>
+                    <input type="text" id="name" class="form-control" placeholder="z. B. Avocado">
+                </div>
+
+                <div class="mb-3">
+                    <label for="kategorie" class="form-label">Kategorie</label>
+                    <select id="kategorie" class="form-select">
+                        <option>Obst</option>
+                        <option>Gemüse</option>
+                        <option>Getreide</option>
+                        <option>Fleisch</option>
+                        <option>Fisch</option>
+                        <option>Milchprodukte</option>
+                        <option>andere Kategorie</option>
+                    </select>
+                </div>
+
+                <div class="mb-3">
+                    <label for="altersempfehlung" class="form-label">
+                        Altersempfehlung
+                    </label>
+
+                    <input type="text" id="altersempfehlung" class="form-control" placeholder="z. B. ab 6 Monate">
+                </div>
+
+                <div class="mb-3">
+                    <label for="allergen" class="form-label">Allergen</label>
+
+                    <select id="allergen" class="form-select">
+                        <option>keines</option>
+                        <option>Milch</option>
+                        <option>Ei</option>
+                        <option>Nüsse</option>
+                        <option>Fisch</option>
+                        <option>Gluten</option>
+                    </select>
+                </div>
+
+                <div class="mb-3">
+                    <label for="beschreibung" class="form-label">
+                        Beschreibung
+                    </label>
+
+                    <textarea id="beschreibung" class="form-control" rows="4" 
+                        placeholder="Beschreibung des Lebensmittels">
+                    </textarea>
+                </div>
+
+                <div class="mb-3">
+                    <label for="bild" class="form-label">Bild</label>
+
+                    <input type="text" id="bild" class="form-control" placeholder="z. B. assets/avokado.png">
+                </div>
+
+                <button type="submit" class="btn formularButton">
+                    Lebensmittel hinzufügen
+                </button>
+
+            </form>
+
+        </div>
+    </div>
+
+</div>
