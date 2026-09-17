@@ -10,14 +10,13 @@ export class Backend {
 
   constructor() { }
 
-  async getAll(): Promise<Lebensmittel[]>  
-  {
+  async getAll(): Promise<Lebensmittel[]> {
     let response = await fetch(this.apiURL + '/lebensmittel');
     let lebensmittel = await response.json();
 
     console.log('Alle Lebensmittel erfolgreich geladen (getAll): ', lebensmittel);
 
-    return lebensmittel; 
+    return lebensmittel;
   }
 
   async getOne(id: string): Promise<Lebensmittel> {
@@ -28,5 +27,18 @@ export class Backend {
 
     return lebensmittel;
   }
+  async create(lebensmittel: Lebensmittel): Promise<Lebensmittel> {
+    let response = await fetch(this.apiURL + '/', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(lebensmittel)
+    });
 
+    let neuesLebensmittel = await response.json();
+    console.log('Neues Lebensmittel erfolgreich erstellt:', neuesLebensmittel);
+
+    return neuesLebensmittel;
+  }
 }

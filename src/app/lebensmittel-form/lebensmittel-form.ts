@@ -6,4 +6,6 @@ import { Component } from '@angular/core';
   templateUrl: './lebensmittel-form.html',
   styleUrl: './lebensmittel-form.css',
 })
-export class LebensmittelForm {}
+export class LebensmittelForm {
+  
+}
