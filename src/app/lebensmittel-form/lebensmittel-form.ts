@@ -21,6 +21,15 @@ export class LebensmittelForm {
 
   constructor( private backend: Backend){} 
   
+  onBildAusgewaehlt(event: Event) {
+    const input = event.target as HTMLInputElement;
+
+    if (input.files && input.files.length > 0) { 
+        const datei = input.files[0]; // nur die als erstes ausgewählte datei 
+
+        console.log('Ausgewählte Datei:', datei);
+    }
+}
   onSubmit() {
     this.backend.create(this.lebensmittel).then(() => {
       console.log('Neuer Lebensmittel wurde hinzugefügt', this.lebensmittel);
