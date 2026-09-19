@@ -19,19 +19,26 @@ export class LebensmittelForm {
       bild: ''
     };
 
+   
+
   constructor( private backend: Backend){} 
   
+  ausgewaehltesBild?: File;
+
   onBildAusgewaehlt(event: Event) {
     const input = event.target as HTMLInputElement;
 
     if (input.files && input.files.length > 0) { 
         const datei = input.files[0]; // nur die als erstes ausgewählte datei 
+        this.ausgewaehltesBild = datei;
 
         console.log('Ausgewählte Datei:', datei);
     }
 }
   onSubmit() {
-    this.backend.create(this.lebensmittel).then(() => {
+    console.log('Ausgewähltes Bild beim Absenden:', this.ausgewaehltesBild);
+    
+    this.backend.create(this.lebensmittel, this.ausgewaehltesBild).then(() => {
       console.log('Neuer Lebensmittel wurde hinzugefügt', this.lebensmittel);
      
     });

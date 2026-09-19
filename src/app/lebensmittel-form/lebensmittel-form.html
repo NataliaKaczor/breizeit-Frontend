@@ -58,9 +58,8 @@
                 </div>
 
                 <div class="mb-3">
-                    <label for="bild" class="form-label">Bild</label>
-                    <input type="file" id="bild" name="bild" class="form-control" placeholder="z. B. assets/avokado.png"
-                        [(ngModel)]="lebensmittel.bild">
+                    <label for="bild" class="form-label"></label>
+                    <input type="file" id="bild" name="bild" accept="image/*" (change)="onBildAusgewaehlt($event)">
                 </div>
                 <button type="submit" class="btn formularButton" (click)="onSubmit()">
                     Lebensmittel hinzufügen

@@ -27,18 +27,29 @@ export class Backend {
 
     return lebensmittel;
   }
-  async create(lebensmittel: Lebensmittel): Promise<Lebensmittel> {
-    let response = await fetch(this.apiURL + '/', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(lebensmittel)
-    });
+  async create(lebensmittel: Lebensmittel, bild?: File): Promise<Lebensmittel> {
+  const formData = new FormData();
 
-    let neuesLebensmittel = await response.json();
-    console.log('Neues Lebensmittel erfolgreich erstellt:', neuesLebensmittel);
+  formData.append('name', lebensmittel.name);
+  formData.append('kategorie', lebensmittel.kategorie);
+  formData.append('altersempfehlung', lebensmittel.altersempfehlung);
+  formData.append('allergen', lebensmittel.allergen);
+  formData.append('beschreibung', lebensmittel.beschreibung || '');
 
-    return neuesLebensmittel;
+  if (bild) {
+    formData.append('bild', bild);
   }
+  console.log('Bild in FormData:', formData.get('bild'));
+
+  let response = await fetch(this.apiURL + '/', {
+    method: 'POST',
+    body: formData // formData kann text und Dateien uebertragen JSON nur text, zahlen usw.
+  });
+
+  let neuesLebensmittel = await response.json();
+
+  console.log('Neues Lebensmittel erfolgreich erstellt:', neuesLebensmittel);
+
+  return neuesLebensmittel;
+}
 }
