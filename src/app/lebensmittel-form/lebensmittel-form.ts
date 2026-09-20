@@ -92,5 +92,20 @@ export class LebensmittelForm {
     this.router.navigate(['/lebensmittelliste']);
   }
 
+  // für weitere Lebensmitteleintrag wird das Formular geleert und Modal geschlossen
+  weiteresLebensmittelHinzufuegen(): void {
+    this.modalAnzeigen = false;
+
+    this.lebensmittel = {
+      name: '',
+      kategorie: 'Obst',
+      altersempfehlung: '',
+      allergen: 'keines',
+      beschreibung: '',
+      bild: ''
+    };
+
+    this.ausgewaehltesBild = undefined;
+  }
 
 }
