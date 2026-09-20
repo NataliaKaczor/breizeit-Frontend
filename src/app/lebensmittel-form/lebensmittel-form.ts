@@ -2,9 +2,10 @@ import { Component } from '@angular/core';
 import { Lebensmittel } from '../../interfaces/lebensmittel';
 import { Backend } from '../shared/backend';
 import { FormsModule } from '@angular/forms';
+import { Router, RouterLink } from '@angular/router';
 @Component({
   selector: 'app-lebensmittel-form',
-  imports: [FormsModule],
+  imports: [FormsModule, RouterLink],
   templateUrl: './lebensmittel-form.html',
   styleUrl: './lebensmittel-form.css',
 })
@@ -19,7 +20,10 @@ export class LebensmittelForm {
     bild: ''
   };
 
-  constructor(private backend: Backend) { }
+  constructor(
+    private backend: Backend,
+    private router: Router
+  ) { }
 
   ausgewaehltesBild?: File;
   fehlermeldung = '';
@@ -68,5 +72,14 @@ export class LebensmittelForm {
         this.vorhandenesLebensmittel = error.lebensmittel;
         this.modalAnzeigen = true;
       });
+
   }
+  vorhandenesLebensmittelAnsehen(): void {
+    this.router.navigate([
+      '/lebensmittelansicht',
+      this.vorhandenesLebensmittel!._id
+    ]);
+
+  }
+
 }
