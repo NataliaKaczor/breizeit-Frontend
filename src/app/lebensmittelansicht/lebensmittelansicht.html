@@ -3,10 +3,12 @@
         <a routerLink="/lebensmittelliste" class="zurueckButton">
             ← Zurück zur Lebensmittelliste
         </a>
-            @if (lebensmittel) {
+        @if (lebensmittel) {
         <div class="lebensmittelDetails">
             <div class="bildBereich">
-                <img class="lebensmittelBild" [src]="lebensmittel.bild.startsWith('uploads/') ? 'http://localhost:3000/' + lebensmittel.bild : lebensmittel.bild" [alt]="lebensmittel.name">
+                <img class="lebensmittelBild"
+                    [src]="lebensmittel.bild.startsWith('uploads/') ? 'http://localhost:3000/' + lebensmittel.bild : lebensmittel.bild"
+                    [alt]="lebensmittel.name">
             </div>
             <div class="infoBereich">
                 <div class="infoBox">
@@ -22,6 +24,16 @@
                     <p>{{lebensmittel.allergen}}</p>
                 </div>
             </div>
-        </div>}
+        </div>
+        <div class="aktionen">
+            <button class="bearbeitenButton " type="button">
+                Lebensmittel bearbeiten
+            </button>
+
+            <button class="loeschenButton" type="button">
+                Lebensmittel löschen
+            </button>
+        </div>
+        }
     </div>
 </section>

@@ -52,9 +52,12 @@
                     <label for="beschreibung" class="form-label">
                         Beschreibung
                     </label>
-                    <textarea id="beschreibung" name="beschreibung" class="form-control" rows="4"
+                    <textarea id="beschreibung" name="beschreibung" class="form-control" rows="4" maxlength="1500"
                         placeholder="Beschreibung des Lebensmittel" [(ngModel)]="lebensmittel.beschreibung">
                     </textarea>
+                    <small>
+                        {{ lebensmittel.beschreibung?.length }}/1500 Zeichen
+                    </small>
                 </div>
 
                 <div class="mb-3">
@@ -81,7 +84,8 @@
                     } @else {
                     <h3>Lebensmittel erfolgreich hinzugefügt</h3>
                     <p> Was möchtest du tun? </p>
-                    <button type="button" (click)="weiteresLebensmittelHinzufuegen()" > Weiteres Lebensmittel hinzufügen</button>
+                    <button type="button" (click)="weiteresLebensmittelHinzufuegen()"> Weiteres Lebensmittel
+                        hinzufügen</button>
                     <button type="button" (click)="zurLebensmittelliste()"> Zur Liste </button>
                     }
 

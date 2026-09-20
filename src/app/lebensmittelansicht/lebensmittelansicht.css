@@ -64,6 +64,50 @@
 
 }
 
+.aktionen {
+    display: flex;
+    justify-content: flex-end;
+    gap: 15px;
+    margin-top: 30px;
+}
+
+.bearbeitenButton{
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-size: 15px;
+    cursor: pointer;
+}
+
+.loeschenButton {
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-size: 15px;
+    cursor: pointer;
+}
+
+
+.bearbeitenButton {
+    background-color: #6b8e5e;
+    color: white;
+    border: none;
+}
+
+.bearbeitenButton:hover {
+    background-color: #55754a;
+}
+
+
+.loeschenButton {
+    background-color: white;
+    color: #b04a4a;
+    border: 1px solid #b04a4a;
+}
+
+.loeschenButton:hover {
+    background-color: #b04a4a;
+    color: white;
+}
+
 /* Responsive */
 
 @media (max-width: 900px) {
