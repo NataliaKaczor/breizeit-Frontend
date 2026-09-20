@@ -28,6 +28,7 @@ export class LebensmittelForm {
   ausgewaehltesBild?: File;
   fehlermeldung = '';
   modalAnzeigen = false;
+  modalTyp: 'LebensmittelExistiert' | 'LebensmittelNeuErstellt' = 'LebensmittelNeuErstellt';
   vorhandenesLebensmittel?: Lebensmittel;
 
   onBildAusgewaehlt(event: Event) {
@@ -65,11 +66,16 @@ export class LebensmittelForm {
     this.backend.create(this.lebensmittel, this.ausgewaehltesBild)
       .then(() => {
         console.log('Neuer Lebensmittel wurde hinzugefügt', this.lebensmittel);
+       
+        this.modalTyp = 'LebensmittelNeuErstellt';
+        this.modalAnzeigen = true;
       })
       .catch((error) => {
         console.log(error);
+        
         this.fehlermeldung = error.message;
         this.vorhandenesLebensmittel = error.lebensmittel;
+        this.modalTyp = 'LebensmittelExistiert';
         this.modalAnzeigen = true;
       });
 
@@ -81,5 +87,10 @@ export class LebensmittelForm {
     ]);
 
   }
+
+  zurLebensmittelliste(): void {
+    this.router.navigate(['/lebensmittelliste']);
+  }
+
 
 }

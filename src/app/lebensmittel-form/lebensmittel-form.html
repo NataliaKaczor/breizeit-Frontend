@@ -72,12 +72,19 @@
             @if (modalAnzeigen) {
             <div class="modal">
                 <div class="modalInhalt">
-                    <h3> {{lebensmittel.name}} existiert bereits</h3>
-                    <p>
-                        Möchtest du es ansehen?
-                    </p>
+                    @if (modalTyp === 'LebensmittelExistiert') {
+                    <h3>{{lebensmittel.name}} existiert bereits</h3>
+                    <p> Möchtest du es ansehen?</p>
                     <button type="button" (click)="vorhandenesLebensmittelAnsehen()"> Ansehen </button>
-                    <button type="button" (click)="modalAnzeigen = false">Schließen</button>
+                    <button type="button" (click)="modalAnzeigen = false"> Schließen </button>
+
+                    } @else {
+                    <h3>Lebensmittel erfolgreich hinzugefügt</h3>
+                    <p> Was möchtest du tun? </p>
+                    <button type="button" > Weiteres Lebensmittel hinzufügen</button>
+                    <button type="button" (click)="zurLebensmittelliste()"> Zur Liste </button>
+                    }
+
                 </div>
             </div>
             }
