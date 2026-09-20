@@ -27,7 +27,7 @@ export class Backend {
 
     return lebensmittel;
   }
-  
+
   async create(lebensmittel: Lebensmittel, bild?: File): Promise<Lebensmittel> {
     const formData = new FormData();
 
@@ -46,9 +46,15 @@ export class Backend {
       method: 'POST',
       body: formData // formData kann text und Dateien uebertragen JSON nur text, zahlen usw.
     });
-
+    
+    // Prüfung ob das Lebensmittel bereits existiert 
     if (response.status === 409) {
-      throw new Error('Dieses Lebensmittel existiert bereits.');
+      const fehler = await response.json();
+
+      throw {
+        message: fehler.error,
+        lebensmittel: fehler.lebensmittel
+      };
     }
 
     let neuesLebensmittel = await response.json();

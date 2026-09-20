@@ -7,7 +7,7 @@
                 Füge ein neues Lebensmittel zur allgemeinen Lebensmittelliste hinzu.
             </p>
 
-            <form>
+            <form (ngSubmit)="onSubmit()">
 
                 <div class="mb-3">
                     <label for="name" class="form-label">Name</label>
@@ -53,7 +53,7 @@
                         Beschreibung
                     </label>
                     <textarea id="beschreibung" name="beschreibung" class="form-control" rows="4"
-                        placeholder="Beschreibung des Lebensmittel" [(ngModel)]=" lebensmittel.beschreibung">
+                        placeholder="Beschreibung des Lebensmittel" [(ngModel)]="lebensmittel.beschreibung">
                     </textarea>
                 </div>
 
@@ -61,16 +61,27 @@
                     <label for="bild" class="form-label"></label>
                     <input type="file" id="bild" name="bild" accept="image/*" (change)="onBildAusgewaehlt($event)">
                 </div>
-                 @if (fehlermeldung) {
-                    <p class="text-danger">{{ fehlermeldung }}</p>
+                @if (fehlermeldung) {
+                <p class="text-danger">{{ fehlermeldung }}</p>
                 }
-                <button type="submit" class="btn formularButton" (click)="onSubmit()">
+                <button type="submit" class="btn formularButton">
                     Lebensmittel hinzufügen
                 </button>
 
             </form>
+            @if (modalAnzeigen) {
+            <div class="modal">
+                <div class="modalInhalt">
+                    <h3> {{lebensmittel.name}} existiert bereits</h3>
+                    <p>
+                        Möchtest du es ansehen?
+                    </p>
+                    <button type="button"> Ansehen </button>
+                    <button type="button" (click)="modalAnzeigen = false">Schließen</button>
+                </div>
+            </div>
+            }
 
         </div>
     </div>
-
 </div>
