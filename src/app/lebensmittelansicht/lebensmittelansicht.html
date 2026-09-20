@@ -6,7 +6,7 @@
             @if (lebensmittel) {
         <div class="lebensmittelDetails">
             <div class="bildBereich">
-                <img [src]="lebensmittel.bild" [alt]="lebensmittel.name">
+                <img class="lebensmittelBild" [src]="lebensmittel.bild.startsWith('uploads/') ? 'http://localhost:3000/' + lebensmittel.bild : lebensmittel.bild" [alt]="lebensmittel.name">
             </div>
             <div class="infoBereich">
                 <div class="infoBox">

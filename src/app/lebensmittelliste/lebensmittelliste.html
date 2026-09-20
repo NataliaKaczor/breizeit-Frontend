@@ -6,7 +6,7 @@
         </div>
         <div class="lebensmittelListe">
             <div class="lebensmittelKarte" *ngFor="let lebensmittel of lebensmittel">
-                <img class="lebensmittelBild" [src]="lebensmittel.bild" [alt]="lebensmittel.name">
+                <img class="lebensmittelBild" [src]="lebensmittel.bild.startsWith('uploads/') ? 'http://localhost:3000/' + lebensmittel.bild : lebensmittel.bild" [alt]="lebensmittel.name">
                 <div class="lebensmittelInhalt">
                     <h3>{{ lebensmittel.name }}</h3>
                     <div class="lebensmittelInfo">

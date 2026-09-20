@@ -19,9 +19,7 @@ export class LebensmittelForm {
       bild: ''
     };
 
-   
-
-  constructor( private backend: Backend){} 
+   constructor( private backend: Backend){} 
   
   ausgewaehltesBild?: File;
 
@@ -36,8 +34,13 @@ export class LebensmittelForm {
     }
 }
   onSubmit() {
+
+    if (!this.ausgewaehltesBild) {
+        console.log('Bitte ein Bild auswählen.');
+        return;
+    }
     console.log('Ausgewähltes Bild beim Absenden:', this.ausgewaehltesBild);
-    
+
     this.backend.create(this.lebensmittel, this.ausgewaehltesBild).then(() => {
       console.log('Neuer Lebensmittel wurde hinzugefügt', this.lebensmittel);
      
