@@ -22,6 +22,7 @@ export class LebensmittelForm {
    constructor( private backend: Backend){} 
   
   ausgewaehltesBild?: File;
+  fehlermeldung = '';
 
   onBildAusgewaehlt(event: Event) {
     const input = event.target as HTMLInputElement;
@@ -35,10 +36,24 @@ export class LebensmittelForm {
 }
   onSubmit() {
 
-    if (!this.ausgewaehltesBild) {
-        console.log('Bitte ein Bild auswählen.');
+     if (!this.lebensmittel.name) {
+        console.log('Bitte einen Namen eingeben.');
+        this.fehlermeldung = 'Bitte einen Namen eingeben.';
         return;
     }
+
+    if (!this.lebensmittel.altersempfehlung) {
+        console.log('Bitte eine Altersempfehlung eingeben.');
+        this.fehlermeldung = 'Bitte eine Altersempfehlung eingeben.';
+        return;
+    }
+
+    if (!this.ausgewaehltesBild) {
+        console.log('Bitte ein Bild auswählen.');
+        this.fehlermeldung = 'Bitte ein Bild auswählen.';
+        return;
+    }
+
     console.log('Ausgewähltes Bild beim Absenden:', this.ausgewaehltesBild);
 
     this.backend.create(this.lebensmittel, this.ausgewaehltesBild).then(() => {

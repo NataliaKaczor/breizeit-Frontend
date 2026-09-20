@@ -61,6 +61,9 @@
                     <label for="bild" class="form-label"></label>
                     <input type="file" id="bild" name="bild" accept="image/*" (change)="onBildAusgewaehlt($event)">
                 </div>
+                 @if (fehlermeldung) {
+                    <p class="text-danger">{{ fehlermeldung }}</p>
+                }
                 <button type="submit" class="btn formularButton" (click)="onSubmit()">
                     Lebensmittel hinzufügen
                 </button>
