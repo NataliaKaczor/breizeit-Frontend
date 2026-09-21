@@ -19,6 +19,8 @@ export class Lebensmittelansicht implements OnInit {
     private router:Router
   ) { }
 
+  modalAnzeigen = false;
+
   async ngOnInit() {
 
     console.log('1. ngOnInit gestartet');
@@ -35,6 +37,11 @@ export class Lebensmittelansicht implements OnInit {
 
   }
 
+  modalOeffnen(): void {
+    this.modalAnzeigen =true;
+  }
+
+
   async lebensmittelLoeschen() {
     if (!this.lebensmittel?._id) {
         console.log('Keine Lebensmittel-ID vorhanden.');
@@ -45,7 +52,7 @@ export class Lebensmittelansicht implements OnInit {
         await this.backend.deleteOne(this.lebensmittel._id);
 
         console.log('Lebensmittel erfolgreich gelöscht.');
-
+        this.modalAnzeigen = false;
         this.router.navigate(['/lebensmittelliste']); 
 
     } catch (error) {

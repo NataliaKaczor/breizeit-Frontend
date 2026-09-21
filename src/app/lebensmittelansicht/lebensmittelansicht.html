@@ -30,10 +30,19 @@
                 Lebensmittel bearbeiten
             </button>
 
-            <button class="loeschenButton" type="button" (click)="lebensmittelLoeschen()">
+            <button class="loeschenButton" type="button" (click)="modalOeffnen()">
                 Lebensmittel löschen
             </button>
         </div>
+        @if (modalAnzeigen) {
+        <div class="modal">
+            <div class="modalInhalt">
+                <h3> Möchtest du "{{lebensmittel.name}}" wirklich löschen?</h3>
+                <button type="button" (click)="lebensmittelLoeschen()"> {{lebensmittel.name}} löschen </button>
+                <button type="button" (click)="modalAnzeigen = false"> Schließen </button>
+            </div>
+        </div>
+        }
         }
     </div>
 </section>
