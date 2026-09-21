@@ -15,7 +15,8 @@ export class Lebensmittelansicht implements OnInit {
   constructor(
     private backend: Backend,
     private route: ActivatedRoute,
-    private cdr:ChangeDetectorRef
+    private cdr:ChangeDetectorRef,
+    private router:Router
   ) { }
 
   async ngOnInit() {
@@ -33,4 +34,22 @@ export class Lebensmittelansicht implements OnInit {
     this.cdr.detectChanges();
 
   }
+
+  async lebensmittelLoeschen() {
+    if (!this.lebensmittel?._id) {
+        console.log('Keine Lebensmittel-ID vorhanden.');
+        return;
+    }
+
+    try {
+        await this.backend.deleteOne(this.lebensmittel._id);
+
+        console.log('Lebensmittel erfolgreich gelöscht.');
+
+        this.router.navigate(['/lebensmittelliste']); 
+
+    } catch (error) {
+        console.log("Fehler:" + error);
+    }
+}
 }

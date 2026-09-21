@@ -46,7 +46,7 @@ export class Backend {
       method: 'POST',
       body: formData // formData kann text und Dateien uebertragen JSON nur text, zahlen usw.
     });
-    
+
     // Prüfung ob das Lebensmittel bereits existiert 
     if (response.status === 409) {
       const fehler = await response.json();
@@ -63,4 +63,16 @@ export class Backend {
 
     return neuesLebensmittel;
   }
+  
+  async deleteOne(id: string): Promise<void> {
+    const response = await fetch(this.apiURL + '/lebensmittel/' + id, {
+        method: 'DELETE'
+    });
+
+    if (!response.ok) {
+        throw new Error('Lebensmittel konnte nicht gelöscht werden.');
+    }
+
+    console.log('Lebensmittel erfolgreich gelöscht.');
+}
 }
