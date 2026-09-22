@@ -63,16 +63,48 @@ export class Backend {
 
     return neuesLebensmittel;
   }
-  
+
   async deleteOne(id: string): Promise<void> {
     const response = await fetch(this.apiURL + '/lebensmittel/' + id, {
-        method: 'DELETE'
+      method: 'DELETE'
     });
 
     if (!response.ok) {
-        throw new Error('Lebensmittel konnte nicht gelöscht werden.');
+      throw new Error('Lebensmittel konnte nicht gelöscht werden.');
     }
 
     console.log('Lebensmittel erfolgreich gelöscht.');
-}
+  }
+
+
+  async updateOne(id: string, lebensmittel: Lebensmittel, bild?: File): Promise<Lebensmittel> {
+
+    const formData = new FormData(); 
+
+    formData.append('name', lebensmittel.name);
+    formData.append('kategorie', lebensmittel.kategorie);
+    formData.append('altersempfehlung', lebensmittel.altersempfehlung);
+    formData.append('allergen', lebensmittel.allergen);
+    formData.append('beschreibung', lebensmittel.beschreibung || ''); // leer String erlaubt, da beschreibung nicht required 
+
+    if (bild) {
+      formData.append('bild', bild);
+    }
+
+    const response = await fetch(
+      this.apiURL + '/lebensmittel/' + id,
+      {
+        method: 'PATCH',
+        body: formData
+      }
+    );
+
+    if (!response.ok) {
+      throw new Error('Lebensmittel konnte nicht aktualisiert werden.');
+    }
+
+    const aktualisiertesLebensmittel = await response.json();
+
+    return aktualisiertesLebensmittel;
+  }
 }

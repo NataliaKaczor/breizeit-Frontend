@@ -59,4 +59,12 @@ export class Lebensmittelansicht implements OnInit {
         console.log("Fehler:" + error);
     }
 }
+
+lebensmittelBearbeiten(): void {
+    this.router.navigate([
+        '/lebensmittelform-bearbeiten',
+        this.lebensmittel._id
+    ]);
+}
+
 }
