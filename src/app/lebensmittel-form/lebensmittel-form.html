@@ -2,11 +2,14 @@
 
     <div class="formularContainer">
         <div class="formularKarte">
+            @if (bearbeiten) {
+            <h2>Lebensmittel bearbeiten</h2>
+            } @else {
             <h2>Neues Lebensmittel hinzufügen</h2>
             <p class="untertitel">
                 Füge ein neues Lebensmittel zur allgemeinen Lebensmittelliste hinzu.
             </p>
-
+            }
             <form (ngSubmit)="onSubmit()">
 
                 <div class="mb-3">
@@ -67,9 +70,15 @@
                 @if (fehlermeldung) {
                 <p class="text-danger">{{ fehlermeldung }}</p>
                 }
-                <button type="submit" class="btn formularButton">
+                @if (bearbeiten) {
+                <button type="submit" class="formularButton">
+                    Änderungen speichern
+                </button>
+                } @else {
+                <button type="submit" class="formularButton">
                     Lebensmittel hinzufügen
                 </button>
+                }
 
             </form>
             @if (modalAnzeigen) {

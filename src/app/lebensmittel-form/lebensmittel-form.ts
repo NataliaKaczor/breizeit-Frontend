@@ -30,6 +30,8 @@ export class LebensmittelForm {
   modalAnzeigen = false;
   modalTyp: 'LebensmittelExistiert' | 'LebensmittelNeuErstellt' = 'LebensmittelNeuErstellt';
   vorhandenesLebensmittel?: Lebensmittel;
+  bearbeiten = false;
+
 
   onBildAusgewaehlt(event: Event) {
     const input = event.target as HTMLInputElement;
