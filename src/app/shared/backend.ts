@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Lebensmittel } from '../../interfaces/lebensmittel';
+import { BreiRezept } from '../../interfaces/brei-rezept';
 
 @Injectable({
   providedIn: 'root',
