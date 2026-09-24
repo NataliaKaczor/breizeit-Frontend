@@ -4,7 +4,7 @@ import { Lebensmittelliste } from './lebensmittelliste/lebensmittelliste';
 import { Lebensmittelansicht } from './lebensmittelansicht/lebensmittelansicht';
 import { LebensmittelForm } from './lebensmittel-form/lebensmittel-form';
 import { BabyProfil } from './baby-profil/baby-profil';
-import { Ernaehrungstagebuch } from './ernaehrungstagebuch/ernaehrungstagebuch';
+import { BreiRezepte } from './brei-rezepte/brei-rezepte';
 
 export const routes: Routes = [
     { path: '', component: Home},
@@ -13,5 +13,6 @@ export const routes: Routes = [
     { path: 'lebensmittelform', component: LebensmittelForm},
     { path: 'lebensmittelform-bearbeiten/:id', component: LebensmittelForm },
     { path: 'baby-profil', component: BabyProfil},
-    { path: 'ernaehrungstagebuch', component: Ernaehrungstagebuch},
+    { path: 'brei-rezepte', component: BreiRezepte}
+    
 ];
