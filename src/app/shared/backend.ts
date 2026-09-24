@@ -35,6 +35,7 @@ export class Backend {
     formData.append('kategorie', lebensmittel.kategorie);
     formData.append('altersempfehlung', lebensmittel.altersempfehlung);
     formData.append('allergen', lebensmittel.allergen);
+    formData.append('vitamine', JSON.stringify(lebensmittel.vitamine));
     formData.append('beschreibung', lebensmittel.beschreibung || '');
 
     if (bild) {
@@ -85,6 +86,7 @@ export class Backend {
     formData.append('kategorie', lebensmittel.kategorie);
     formData.append('altersempfehlung', lebensmittel.altersempfehlung);
     formData.append('allergen', lebensmittel.allergen);
+    formData.append('vitamine', JSON.stringify(lebensmittel.vitamine));
     formData.append('beschreibung', lebensmittel.beschreibung || ''); // leer String erlaubt, da beschreibung nicht required 
 
     if (bild) {
