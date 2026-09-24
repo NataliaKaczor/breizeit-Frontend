@@ -1,8 +1,8 @@
 <section class="lebensmittelansicht">
     <div class="lebensmittelContainer">
-        <a routerLink="/lebensmittelliste" class="zurueckButton">
+        <button type="button" class="zurueckButton" (click)="zurLebensmittelliste()">
             ← Zurück zur Lebensmittelliste
-        </a>
+        </button>
         @if (lebensmittel) {
         <div class="lebensmittelDetails">
             <div class="bildBereich">
@@ -13,7 +13,15 @@
             <div class="infoBereich">
                 <div class="infoBox">
                     <p class="infoTitel">Altersempfehlung</p>
-                    <p class="infoTitel">{{lebensmittel.altersempfehlung}}</p>
+                    <p> {{lebensmittel.altersempfehlung}} </p>
+                </div>
+                <div class="infoBox vitaminBox">
+                    <p class="infoTitel">Vitamine</p>
+                    <div class="vitaminListe">
+                        @for (einzelnesVitamin of lebensmittel.vitamine; track einzelnesVitamin) {
+                        <p class="vitamin">{{ einzelnesVitamin }}</p>
+                        }
+                    </div>
                 </div>
                 <div class="infoBox">
                     <p class="infoTitel">Beschreibung</p>

@@ -14,6 +14,8 @@
     color: #6b8e5e;
     text-decoration: none;
     font-size: 16px;
+    border: none;
+    background: none;
 }
 
 .zurueckButton:hover {
@@ -57,6 +59,20 @@
 
 .infoTitel {
     font-weight: bold;
+}
+
+.vitaminBox {
+    display: flex;
+    align-items: flex-start;
+}
+
+.vitaminListe {
+    margin-left: auto;
+    text-align: left;
+}
+
+.vitamin {
+    margin: 0 0 5px 0;
 }
 
 .beschreibung{

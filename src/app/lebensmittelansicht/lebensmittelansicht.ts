@@ -67,4 +67,8 @@ lebensmittelBearbeiten(): void {
     ]);
 }
 
+zurLebensmittelliste() {
+    this.router.navigate(['/lebensmittelliste']);
+}
+
 }
