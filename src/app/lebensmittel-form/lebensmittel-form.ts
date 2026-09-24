@@ -16,6 +16,7 @@ export class LebensmittelForm {
     kategorie: 'Obst',
     altersempfehlung: '',
     allergen: 'keines',
+    vitamine: [],
     beschreibung: '',
     bild: ''
   };
@@ -33,6 +34,17 @@ export class LebensmittelForm {
   vorhandenesLebensmittel?: Lebensmittel;
   bearbeiten = false;
 
+  vitamine = [
+    'Vitamin A',
+    'Vitamin B1',
+    'Vitamin B2',
+    'Vitamin B6',
+    'Vitamin B12',
+    'Vitamin C',
+    'Vitamin D',
+    'Vitamin E',
+    'Vitamin K'
+];
 
   ngOnInit(): void {
     const id = this.route.snapshot.paramMap.get('id');
@@ -83,6 +95,9 @@ export class LebensmittelForm {
     }
 
     if (this.bearbeiten) {
+
+      console.log('Ausgewähltes Bild :', this.ausgewaehltesBild);
+
       this.backend.updateOne(this.lebensmittel._id!, this.lebensmittel, this.ausgewaehltesBild)
         .then(() => {
 
@@ -90,35 +105,40 @@ export class LebensmittelForm {
           this.router.navigate(['/lebensmittelansicht', this.lebensmittel._id]);
         })
         .catch((error) => {
+
           console.log(error);
           this.fehlermeldung = error.message;
         });
     }
 
-    console.log('Ausgewähltes Bild beim Absenden:', this.ausgewaehltesBild);
 
-    this.backend.create(this.lebensmittel, this.ausgewaehltesBild)
-      .then(() => {
-        console.log('Neuer Lebensmittel wurde hinzugefügt', this.lebensmittel);
+    else {
 
-        this.modalTyp = 'LebensmittelNeuErstellt';
-        this.modalAnzeigen = true;
-      })
-      .catch((error) => {
-        console.log(error);
+      console.log('Ausgewähltes Bild:', this.ausgewaehltesBild);
 
-        this.fehlermeldung = error.message;
-        this.vorhandenesLebensmittel = error.lebensmittel;
-        this.modalTyp = 'LebensmittelExistiert';
-        this.modalAnzeigen = true;
-      });
+      this.backend.create(this.lebensmittel, this.ausgewaehltesBild)
+        .then(() => {
 
+          console.log('Neuer Lebensmittel wurde hinzugefügt', this.lebensmittel);
+
+          this.modalTyp = 'LebensmittelNeuErstellt';
+          this.modalAnzeigen = true;
+        })
+        .catch((error) => {
+
+          console.log(error);
+
+          this.fehlermeldung = error.message;
+          this.vorhandenesLebensmittel = error.lebensmittel;
+          this.modalTyp = 'LebensmittelExistiert';
+          this.modalAnzeigen = true;
+        });
+
+    }
   }
+
   vorhandenesLebensmittelAnsehen(): void {
-    this.router.navigate([
-      '/lebensmittelansicht',
-      this.vorhandenesLebensmittel!._id
-    ]);
+    this.router.navigate([ '/lebensmittelansicht', this.vorhandenesLebensmittel!._id ]);
 
   }
 
@@ -135,6 +155,7 @@ export class LebensmittelForm {
       kategorie: 'Obst',
       altersempfehlung: '',
       allergen: 'keines',
+      vitamine: [],
       beschreibung: '',
       bild: ''
     };

@@ -4,6 +4,7 @@ export interface Lebensmittel {
   kategorie: "Obst" | "Gemüse" | "Getreide" | "Fleisch" | "Fisch" | "Milchprodukte" | "andere Kategorie";
   altersempfehlung: string; 
   allergen: "keines" | "Milch" | "Ei" | "Nüsse" | "Fisch" | "Gluten";
+  vitamine: string[];
   beschreibung?: string;
   bild: string; 
 }
