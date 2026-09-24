@@ -52,6 +52,19 @@
                 </div>
 
                 <div class="mb-3">
+                    <label class="form-label">Wähle die Vitamine, die dieses Lebensmittel besitzt </label>
+
+                    @for (einzelnesVitamin of vitamine; track einzelnesVitamin) {
+                    <div>
+                        <label>
+                            <input type="checkbox" [value]="einzelnesVitamin" [checked]="lebensmittel.vitamine.includes(einzelnesVitamin)">
+                            {{ einzelnesVitamin }}
+                        </label>
+                    </div>
+                    }
+                </div>
+
+                <div class="mb-3">
                     <label for="beschreibung" class="form-label">
                         Beschreibung
                     </label>
