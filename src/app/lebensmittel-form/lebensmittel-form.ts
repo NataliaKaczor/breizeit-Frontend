@@ -5,7 +5,7 @@ import { FormsModule } from '@angular/forms';
 import { Router, RouterLink, ActivatedRoute } from '@angular/router';
 @Component({
   selector: 'app-lebensmittel-form',
-  imports: [FormsModule, RouterLink],
+  imports: [FormsModule, ],
   templateUrl: './lebensmittel-form.html',
   styleUrl: './lebensmittel-form.css',
 })
@@ -74,7 +74,26 @@ export class LebensmittelForm {
       console.log('Ausgewählte Datei:', datei);
     }
   }
+
+  vitaminAendern(vitamin: string, event: Event) {
+
+  const checkbox = event.target as HTMLInputElement;
+
+  if (checkbox.checked) {
+
+    this.lebensmittel.vitamine.push(vitamin);
+
+  } else {
+
+    this.lebensmittel.vitamine = this.lebensmittel.vitamine.filter(v => v !== vitamin);
+
+  }
+
+}
   onSubmit() {
+    
+    console.log('Ausgewählte Vitamine:', this.lebensmittel.vitamine);
+
 
     if (!this.lebensmittel.name) {
       console.log('Bitte einen Namen eingeben.');

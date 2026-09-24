@@ -57,7 +57,7 @@
                     @for (einzelnesVitamin of vitamine; track einzelnesVitamin) {
                     <div>
                         <label>
-                            <input type="checkbox" [value]="einzelnesVitamin" [checked]="lebensmittel.vitamine.includes(einzelnesVitamin)">
+                            <input type="checkbox" [value]="einzelnesVitamin" [checked]="lebensmittel.vitamine.includes(einzelnesVitamin)" (change)="vitaminAendern(einzelnesVitamin, $event)">
                             {{ einzelnesVitamin }}
                         </label>
                     </div>

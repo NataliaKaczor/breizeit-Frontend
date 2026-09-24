@@ -96,7 +96,7 @@ export class Backend {
     const response = await fetch(
       this.apiURL + '/lebensmittel/' + id,
       {
-        method: 'PATCH',
+        method: 'PUT',
         body: formData
       }
     );
