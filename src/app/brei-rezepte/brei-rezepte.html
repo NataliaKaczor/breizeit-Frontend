@@ -18,6 +18,19 @@
             <div class="breiRezeptKarte">
                 <h3>{{ breiRezept.name }}</h3>
                 <p class="alter">{{ breiRezept.altersempfehlung }} </p>
+
+                @for (zutat of breiRezept.zutaten; track zutat.lebensmittel._id) {
+                <div>
+                    <img class="lebensmittelBild"
+                        [src]="zutat.lebensmittel.bild.startsWith('uploads/') ? 'http://localhost:3000/' + zutat.lebensmittel.bild : zutat.lebensmittel.bild"
+                        [alt]="zutat.lebensmittel.name" width="30px">
+                    <p>{{ zutat.menge }} {{ zutat.einheit }} {{ zutat.lebensmittel.name }}</p>
+                </div>
+                }
+                <div class="zubereitung">
+                    <h2> Zubereitung</h2>
+                    <p> {{breiRezept.beschreibung}} </p>
+                </div>
             </div>
 
             }
