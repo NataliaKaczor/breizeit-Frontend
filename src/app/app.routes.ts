@@ -3,7 +3,6 @@ import { Home } from './home/home';
 import { Lebensmittelliste } from './lebensmittelliste/lebensmittelliste';
 import { Lebensmittelansicht } from './lebensmittelansicht/lebensmittelansicht';
 import { LebensmittelForm } from './lebensmittel-form/lebensmittel-form';
-import { BabyProfil } from './baby-profil/baby-profil';
 import { BreiRezepte } from './brei-rezepte/brei-rezepte';
 
 export const routes: Routes = [
@@ -12,7 +11,6 @@ export const routes: Routes = [
     { path: 'lebensmittelansicht/:id', component: Lebensmittelansicht },
     { path: 'lebensmittelform', component: LebensmittelForm},
     { path: 'lebensmittelform-bearbeiten/:id', component: LebensmittelForm },
-    { path: 'baby-profil', component: BabyProfil},
     { path: 'brei-rezepte', component: BreiRezepte}
     
 ];

@@ -2,10 +2,12 @@
 .navbar {
     height: 60px;
     margin:0px;
+    background-color: rgba(248, 243, 239, 0.5);
 }
 /* logo -- wenn Zeit canva- logo wechseln  */
 .navbar-brand {
     font-family: 'Playfair Display', serif;
+    font-weight: 500;
 }
 
 /* navigation links */
@@ -32,4 +34,12 @@
     font-size: large;
     border: none;
     height: 50px ;
+}
+
+@media (max-width: 1000px) {
+
+    .navbar {
+        background-color: transparent;
+    }
+
 }
