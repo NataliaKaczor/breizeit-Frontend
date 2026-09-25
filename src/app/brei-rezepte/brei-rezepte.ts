@@ -4,6 +4,7 @@ import { BreiRezeptBackend } from '../shared/breirezept-backend';
 import { ChangeDetectorRef } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Lebensmittel } from '../../interfaces/lebensmittel';
+import { Backend } from '../shared/backend';
 
 @Component({
   selector: 'app-brei-rezepte',
@@ -20,6 +21,7 @@ export class BreiRezepte {
     altersempfehlung: '',
     beschreibung: ''
   };
+    lebensmittel: Lebensmittel[] = [];
 
   ausgewaehltesLebensmittel?: Lebensmittel; 
   menge = 0;
@@ -27,12 +29,14 @@ export class BreiRezepte {
 
   constructor(
     private breiRezeptBackend: BreiRezeptBackend,
-    private cdr: ChangeDetectorRef
+    private cdr: ChangeDetectorRef,
+    private backend : Backend
   ) { }
 
   async ngOnInit() {
 
     this.breiRezepte = await this.breiRezeptBackend.getAll();
+     this.lebensmittel = await this.backend.getAll();
     this.cdr.detectChanges();
 
   }
