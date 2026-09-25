@@ -89,6 +89,19 @@
                         placeholder="Beschreibe die Zubereitung des Breis" [(ngModel)]="breiRezept.beschreibung">
                     </textarea>
                 </div>
+                @if (empfehlungenAnzeigen(breiRezept).length > 0) {
+
+                <div class="empfehlungen">
+
+                    <h1>Empfehlungen</h1>
+
+                    @for (empfehlung of empfehlungenAnzeigen(breiRezept); track empfehlung) {
+                    <p>{{ empfehlung }}</p>
+                    }
+
+                </div>
+
+                }
                 <button type="submit" class="formularButton">
                     Brei-Rezept hinzufügen
                 </button>

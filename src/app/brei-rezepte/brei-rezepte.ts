@@ -58,13 +58,33 @@ export class BreiRezepte {
     this.einheit = 'g';
   }
 
-  async onSubmit() {
-    try {
-      await this.breiRezeptBackend.create(this.breiRezept);
+  empfehlungenAnzeigen(breiRezept: BreiRezept): string[] {
+  const empfehlungen: string[] = [];
 
-      this.breiRezepte = await this.breiRezeptBackend.getAll();
-      
-      this.breiRezept = {
+  const eisenLebensmittel = breiRezept.zutaten.find(zutat =>
+    zutat.lebensmittel.vitamine.includes('Eisen (Nährstoff)')
+  );
+
+  const vitaminCLebensmittel = this.lebensmittel.filter(
+    lebensmittel => lebensmittel.vitamine.includes('Vitamin C')
+  );
+
+  if (eisenLebensmittel && vitaminCLebensmittel.length >= 2) {
+    empfehlungen.push(
+      `${eisenLebensmittel.lebensmittel.name} enthält Eisen. Du kannst dazu zum Beispiel ${vitaminCLebensmittel[0].name} oder ${vitaminCLebensmittel[1].name} kombinieren, da Vitamin C die Eisenaufnahme unterstützen kann.`
+    );
+  }
+
+  return empfehlungen;
+}
+
+  async onSubmit() {
+  try {
+    await this.breiRezeptBackend.create(this.breiRezept);
+
+    this.breiRezepte = await this.breiRezeptBackend.getAll();
+
+    this.breiRezept = {
       name: '',
       zutaten: [],
       altersempfehlung: '',
@@ -77,11 +97,11 @@ export class BreiRezepte {
 
     this.cdr.detectChanges()
 
-     console.log('Brei-Rezept erfolgreich hinzugefügt:', this.breiRezept);
+    console.log('Brei-Rezept erfolgreich hinzugefügt:', this.breiRezept);
 
-    } catch (error) {
-      console.log('Fehler beim Hinzufügen des Brei-Rezepts:', error);
-    }
+  } catch (error) {
+    console.log('Fehler beim Hinzufügen des Brei-Rezepts:', error);
   }
+}
 
 }
