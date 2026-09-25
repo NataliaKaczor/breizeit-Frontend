@@ -1,0 +1,32 @@
+.breiRezepte {
+    padding: 60px 30px 30px 30px;
+    background-color: #f8f3ef;
+}
+
+.breiRezepteContainer {
+    max-width: 1000px;
+    margin: auto;
+}
+
+.breiRezepteKopfzeile {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 35px;
+}
+
+.breiRezeptTitel {
+    color: #4d3b36;
+    font-size: 32px;
+    font-weight: 600;
+    margin: 0 0 12px 0;
+}
+
+.breirezeptUntertitel {
+    color: #8a7168;
+    font-size: 16px;
+    line-height: 1.6;
+    text-align: justify;
+    max-width: 900px;
+    margin: 0;
+}
