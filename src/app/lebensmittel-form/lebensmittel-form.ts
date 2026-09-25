@@ -3,9 +3,10 @@ import { Lebensmittel } from '../../interfaces/lebensmittel';
 import { Backend } from '../shared/backend';
 import { FormsModule } from '@angular/forms';
 import { Router, RouterLink, ActivatedRoute } from '@angular/router';
+import { ChangeDetectorRef } from '@angular/core';
 @Component({
   selector: 'app-lebensmittel-form',
-  imports: [FormsModule, ],
+  imports: [FormsModule,],
   templateUrl: './lebensmittel-form.html',
   styleUrl: './lebensmittel-form.css',
 })
@@ -24,7 +25,8 @@ export class LebensmittelForm {
   constructor(
     private backend: Backend,
     private router: Router,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private cdr: ChangeDetectorRef
   ) { }
 
   ausgewaehltesBild?: File;
@@ -44,7 +46,7 @@ export class LebensmittelForm {
     'Vitamin D',
     'Vitamin E',
     'Vitamin K'
-];
+  ];
 
   ngOnInit(): void {
     const id = this.route.snapshot.paramMap.get('id');
@@ -56,8 +58,9 @@ export class LebensmittelForm {
   // Vorhandenes Lebensmittel laden 
   async lebensmittelLaden(id: string) {
     try {
-      this.lebensmittel = await
-        this.backend.getOne(id);
+      this.lebensmittel = await this.backend.getOne(id);
+      this.cdr.detectChanges();
+
     }
     catch (error) {
       console.log('Fehler beim Laden des Lebensmittels:', error);
@@ -77,21 +80,21 @@ export class LebensmittelForm {
 
   vitaminAendern(vitamin: string, event: Event) {
 
-  const checkbox = event.target as HTMLInputElement;
+    const checkbox = event.target as HTMLInputElement;
 
-  if (checkbox.checked) {
+    if (checkbox.checked) {
 
-    this.lebensmittel.vitamine.push(vitamin);
+      this.lebensmittel.vitamine.push(vitamin);
 
-  } else {
+    } else {
 
-    this.lebensmittel.vitamine = this.lebensmittel.vitamine.filter(v => v !== vitamin);
+      this.lebensmittel.vitamine = this.lebensmittel.vitamine.filter(v => v !== vitamin);
+
+    }
 
   }
-
-}
   onSubmit() {
-    
+
     console.log('Ausgewählte Vitamine:', this.lebensmittel.vitamine);
 
 
@@ -107,7 +110,7 @@ export class LebensmittelForm {
       return;
     }
 
-    if (!this.ausgewaehltesBild) {
+    if (!this.bearbeiten && !this.ausgewaehltesBild) {
       console.log('Bitte ein Bild auswählen.');
       this.fehlermeldung = 'Bitte ein Bild auswählen.';
       return;
@@ -157,7 +160,7 @@ export class LebensmittelForm {
   }
 
   vorhandenesLebensmittelAnsehen(): void {
-    this.router.navigate([ '/lebensmittelansicht', this.vorhandenesLebensmittel!._id ]);
+    this.router.navigate(['/lebensmittelansicht', this.vorhandenesLebensmittel!._id]);
 
   }
 

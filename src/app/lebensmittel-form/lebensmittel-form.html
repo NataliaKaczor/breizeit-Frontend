@@ -57,7 +57,9 @@
                     @for (einzelnesVitamin of vitamine; track einzelnesVitamin) {
                     <div>
                         <label>
-                            <input type="checkbox" [value]="einzelnesVitamin" [checked]="lebensmittel.vitamine.includes(einzelnesVitamin)" (change)="vitaminAendern(einzelnesVitamin, $event)">
+                            <input type="checkbox" [value]="einzelnesVitamin"
+                                [checked]="lebensmittel.vitamine.includes(einzelnesVitamin)"
+                                (change)="vitaminAendern(einzelnesVitamin, $event)">
                             {{ einzelnesVitamin }}
                         </label>
                     </div>
@@ -77,6 +79,15 @@
                 </div>
 
                 <div class="mb-3">
+                    @if (bearbeiten && lebensmittel.bild) {
+                    <div class="vorhandenesBild">
+                        <p>Aktuelles Bild:</p>
+                        <img [src]="lebensmittel.bild.startsWith('uploads/')
+                    ? 'http://localhost:3000/' + lebensmittel.bild
+                    : lebensmittel.bild" [alt]="lebensmittel.name" width="60px">
+                    <p>Sie können das Bild ändern in dem Sie eine neue Datei laden</p>
+                    </div>
+                    }
                     <label for="bild" class="form-label"></label>
                     <input type="file" id="bild" name="bild" accept="image/*" (change)="onBildAusgewaehlt($event)">
                 </div>
