@@ -21,22 +21,22 @@ export class BreiRezepte {
     altersempfehlung: '',
     beschreibung: ''
   };
-    lebensmittel: Lebensmittel[] = [];
+  lebensmittel: Lebensmittel[] = [];
 
-  ausgewaehltesLebensmittel?: Lebensmittel; 
+  ausgewaehltesLebensmittel?: Lebensmittel;
   menge = 0;
   einheit = 'g';
 
   constructor(
     private breiRezeptBackend: BreiRezeptBackend,
     private cdr: ChangeDetectorRef,
-    private backend : Backend
+    private backend: Backend
   ) { }
 
   async ngOnInit() {
 
     this.breiRezepte = await this.breiRezeptBackend.getAll();
-     this.lebensmittel = await this.backend.getAll();
+    this.lebensmittel = await this.backend.getAll();
     this.cdr.detectChanges();
 
   }
@@ -44,22 +44,44 @@ export class BreiRezepte {
   zutatHinzufuegen() {
 
     if (!this.ausgewaehltesLebensmittel) {
-        return;
+      return;
     }
 
     this.breiRezept.zutaten.push({
-        lebensmittel: this.ausgewaehltesLebensmittel,
-        menge: this.menge,
-        einheit: this.einheit
+      lebensmittel: this.ausgewaehltesLebensmittel,
+      menge: this.menge,
+      einheit: this.einheit
     });
 
     this.ausgewaehltesLebensmittel = undefined;
     this.menge = 0;
     this.einheit = 'g';
-}
+  }
 
   async onSubmit() {
-    await this.breiRezeptBackend.create(this.breiRezept);
+    try {
+      await this.breiRezeptBackend.create(this.breiRezept);
+
+      this.breiRezepte = await this.breiRezeptBackend.getAll();
+      
+      this.breiRezept = {
+      name: '',
+      zutaten: [],
+      altersempfehlung: '',
+      beschreibung: ''
+    };
+
+    this.ausgewaehltesLebensmittel = undefined;
+    this.menge = 0;
+    this.einheit = 'g';
+
+    this.cdr.detectChanges()
+
+     console.log('Brei-Rezept erfolgreich hinzugefügt:', this.breiRezept);
+
+    } catch (error) {
+      console.log('Fehler beim Hinzufügen des Brei-Rezepts:', error);
+    }
   }
 
 }

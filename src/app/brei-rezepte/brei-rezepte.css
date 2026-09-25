@@ -31,6 +31,47 @@
     margin: 0;
 }
 
+.breirezeptHinzufuegen {
+    background-color: white;
+    border-radius: 15px;
+    padding: 25px;
+    margin-bottom: 35px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+}
+
+.breirezeptHinzufuegen h2 {
+    color: #4d3b36;
+    margin-bottom: 8px;
+    text-align: center;
+}
+
+.untertitel {
+    color: #8a7168;
+    margin-bottom: 25px;
+    text-align: center;
+}
+
+.formularButton {
+    background-color: #6b8e5e;
+    color: white;
+    border: none;
+    padding: 10px 18px;
+    border-radius: 8px;
+    font-size: 15px;
+    cursor: pointer;
+    margin-top: 5px;
+    margin-bottom: 15px;
+}
+
+.formularButton:hover {
+    background-color: #55754a;
+}
+
+.breirezeptHinzufuegen form {
+    max-width: 700px;
+    margin: auto;
+}
+
 .breiRezepteListe {
 
     display: grid;

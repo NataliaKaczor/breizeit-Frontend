@@ -37,9 +37,7 @@
 
                     <select id="lebensmittel" name="lebensmittel" class="form-select"
                         [(ngModel)]="ausgewaehltesLebensmittel">
-                        <option [ngValue]="undefined">
-                            Lebensmittel auswählen
-                        </option>
+                        <option [ngValue]="undefined"> Lebensmittel auswählen </option>
 
                         @for (einzelnesLebensmittel of lebensmittel; track einzelnesLebensmittel._id) {
                         <option [ngValue]="einzelnesLebensmittel">
@@ -73,7 +71,7 @@
 
                 <div class="mb-3">
 
-                    <p>Zutaten:</p>
+                    <p> ausgewählte Zutaten:</p>
 
                     @for (zutat of breiRezept.zutaten; track zutat.lebensmittel._id) {
 
@@ -91,6 +89,9 @@
                         placeholder="Beschreibe die Zubereitung des Breis" [(ngModel)]="breiRezept.beschreibung">
                     </textarea>
                 </div>
+                <button type="submit" class="formularButton">
+                    Brei-Rezept hinzufügen
+                </button>
             </form>
 
         </div>
@@ -119,6 +120,7 @@
 
             }
         </div>
+
     </div>
 
 </section>
