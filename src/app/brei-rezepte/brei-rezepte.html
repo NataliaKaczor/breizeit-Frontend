@@ -20,7 +20,7 @@
                 <p class="alter">{{ breiRezept.altersempfehlung }} </p>
 
                 @for (zutat of breiRezept.zutaten; track zutat.lebensmittel._id) {
-                <div>
+                <div class="zutat">
                     <img class="lebensmittelBild"
                         [src]="zutat.lebensmittel.bild.startsWith('uploads/') ? 'http://localhost:3000/' + zutat.lebensmittel.bild : zutat.lebensmittel.bild"
                         [alt]="zutat.lebensmittel.name" width="30px">
@@ -28,7 +28,7 @@
                 </div>
                 }
                 <div class="zubereitung">
-                    <h2> Zubereitung</h2>
+                    <h1> Zubereitung</h1>
                     <p> {{breiRezept.beschreibung}} </p>
                 </div>
             </div>
