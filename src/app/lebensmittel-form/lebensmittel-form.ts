@@ -45,7 +45,9 @@ export class LebensmittelForm {
     'Vitamin C',
     'Vitamin D',
     'Vitamin E',
-    'Vitamin K'
+    'Vitamin K',
+    'Eisen (Nährstoff)',
+    'Omega 3 (Nährstoff)'
   ];
 
   ngOnInit(): void {
