@@ -30,3 +30,25 @@
     max-width: 900px;
     margin: 0;
 }
+
+.breiRezepteListe {
+
+    display: grid;
+
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 25px;
+
+}
+
+.breiRezeptKarte {
+
+    background-color: white;
+
+    border-radius: 15px;
+
+    padding: 20px;
+
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+
+}

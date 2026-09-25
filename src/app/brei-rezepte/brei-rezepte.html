@@ -11,5 +11,17 @@
                 Zutaten und eine ausgewogene Auswahl verschiedener Lebensmittel im Mittelpunkt.
             </p>
         </div>
+        <div class="breiRezepteListe">
+
+            @for (breiRezept of breiRezepte; track breiRezept._id) {
+
+            <div class="breiRezeptKarte">
+                <h3>{{ breiRezept.name }}</h3>
+                <p class="alter">{{ breiRezept.altersempfehlung }} </p>
+            </div>
+
+            }
+        </div>
     </div>
+
 </section>
