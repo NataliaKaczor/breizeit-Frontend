@@ -1,4 +1,4 @@
-# 🥕 Babybrei – Webanwendung für die Beikostzeit
+# 🥕 Babybrei – Semesteraufgabe Webtechnologien 2026
 
 Babybrei ist eine Webanwendung, die Eltern bei der Vorbereitung und Gestaltung der Beikostzeit unterstützen soll.
 Die Anwendung ermöglicht es, verschiedene Lebensmittel zu verwalten und daraus eigene Brei-Rezepte zusammenzustellen.
